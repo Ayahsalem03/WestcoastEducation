@@ -42,7 +42,7 @@ teacher.Adress.Street = "Storgatan 15";
 teacher.Adress.Postnummer = "41100";
 teacher.Adress.Ort = "Göteborg";
 Console.WriteLine(teacher);
-teacher.Courses.Add(course);
+teacher.AddCourse(course);
 foreach(Course c in teacher.Courses)
 {
     Console.WriteLine(c);
