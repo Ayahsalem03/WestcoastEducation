@@ -41,6 +41,11 @@ Course course= new()
 };
 
 Console.WriteLine(teacher);
+teacher.Courses.Add(course);
+foreach(Course c in teacher.Courses)
+{
+    Console.WriteLine(c);
+}
 
 EducationManager manager = new()
 {
@@ -54,6 +59,7 @@ EducationManager manager = new()
     Anställningsdatum=new DateTime(2026,8,3)
 
 };
+
 
 Console.WriteLine(manager);
 
