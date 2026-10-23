@@ -56,3 +56,18 @@ EducationManager manager = new()
 };
 
 Console.WriteLine(manager);
+
+Administrator administrator = new()
+{
+    Förnamn="Fredrek",
+    Efternamn="Johansson",
+    Telefon="987654321",
+    Address="storgatan 3",
+    Postnummer="44567",
+    Ort="Göteborg",
+    Kunskapsområde="Administration",
+    Anställningsdatum=new DateTime(2022,8,3)
+
+};
+
+Console.WriteLine(administrator);
