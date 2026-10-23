@@ -20,11 +20,12 @@ Course course= new()
      Efternamn="Salem",
      Telefon="07222222222",
      Personnummer="200306299999",
-     Address="Hjortmossegatan 16",
-     Postnummer="46151",
-     Ort="Trollhättan"
+ 
 
  };
+student.Adress.Street = "Hjortmossegatan 16";
+student.Adress.Postnummer = "46151";
+student.Adress.Ort= "Trollhättan";
 
  Console.WriteLine(student);
 
@@ -34,12 +35,12 @@ Course course= new()
     Efternamn = "Andersson",
     Telefon = "0701234567",
     Personnummer = "198001011234",
-    Address = "Storgatan 15",
-    Postnummer = "41100",
-    Ort = "Göteborg",
+
     Kunskapsområde= "Programmering"
 };
-
+teacher.Adress.Street = "Storgatan 15";
+teacher.Adress.Postnummer = "41100";
+teacher.Adress.Ort = "Göteborg";
 Console.WriteLine(teacher);
 teacher.Courses.Add(course);
 foreach(Course c in teacher.Courses)
@@ -49,31 +50,33 @@ foreach(Course c in teacher.Courses)
 
 EducationManager manager = new()
 {
-    Förnamn="Anna",
-    Efternamn="Johanssom",
-    Telefon="123456789",
-    Address="srorgatan 2",
-    Postnummer="12345",
-    Ort="Göteborg",
-    Kunskapsområde="IT",
-    Anställningsdatum=new DateTime(2026,8,3)
-
+    Förnamn = "Anna",
+    Efternamn = "Johanssom",
+    Telefon = "123456789",
+    Kunskapsområde = "IT",
+    Anställningsdatum = new DateTime(2026, 8, 3)
 };
 
+manager.Adress.Street = "Storgatan 2";
+manager.Adress.Postnummer = "12345";
+manager.Adress.Ort = "Göteborg";
 
 Console.WriteLine(manager);
 
+
+
+
 Administrator administrator = new()
 {
-    Förnamn="Fredrek",
-    Efternamn="Johansson",
-    Telefon="987654321",
-    Address="storgatan 3",
-    Postnummer="44567",
-    Ort="Göteborg",
-    Kunskapsområde="Administration",
-    Anställningsdatum=new DateTime(2022,8,3)
-
+    Förnamn = "Fredrek",
+    Efternamn = "Johansson",
+    Telefon = "987654321",
+    Kunskapsområde = "Administration",
+    Anställningsdatum = new DateTime(2022, 8, 3)
 };
+
+administrator.Adress.Street = "Storgatan 3";
+administrator.Adress.Postnummer = "44567";
+administrator.Adress.Ort = "Göteborg";
 
 Console.WriteLine(administrator);
