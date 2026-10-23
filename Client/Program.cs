@@ -27,3 +27,17 @@ Course course= new()
  };
 
  Console.WriteLine(student);
+
+ Teacher teacher = new()
+{
+    Förnamn = "Michael",
+    Efternamn = "Andersson",
+    Telefon = "0701234567",
+    Personnummer = "198001011234",
+    Address = "Storgatan 15",
+    Postnummer = "41100",
+    Ort = "Göteborg",
+    Kunskapsområde= "Programmering"
+};
+
+Console.WriteLine(teacher);
