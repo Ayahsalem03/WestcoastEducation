@@ -41,3 +41,18 @@ Course course= new()
 };
 
 Console.WriteLine(teacher);
+
+EducationManager manager = new()
+{
+    Förnamn="Anna",
+    Efternamn="Johanssom",
+    Telefon="123456789",
+    Address="srorgatan 2",
+    Postnummer="12345",
+    Ort="Göteborg",
+    Kunskapsområde="IT",
+    Anställningsdatum=new DateTime(2026,8,3)
+
+};
+
+Console.WriteLine(manager);
