@@ -12,6 +12,15 @@ Course course= new()
    
     
 };
+if (course.CheckDates())
+{
+    Console.WriteLine("Kursens datum är giltiga.");
+
+}
+else
+{
+    Console.WriteLine("Kursens datum är ogiltiga.");
+}
  Console.WriteLine(course);
 
  Student student= new()

@@ -10,10 +10,21 @@ public  class Course
     public DateTime EndDatum { get; set; }
     public string CourseType { get; set; } = "";
 
+    public bool CheckDates()
+    {
+        if (EndDatum > StartDatum)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 
     public override string ToString()
-{
+    {
     return $"Kursnummer: {Kursnummer}, Titel:{Title}, Längd: {Längd}veckor,Startdatum: {StartDatum:yyyy-MM-dd}, Slutdatum: {EndDatum:yyyy-MM-dd}, Kurstyp: {CourseType}";
-}
+    }
 
 }
