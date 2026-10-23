@@ -13,3 +13,17 @@ Course course= new()
     
 };
  Console.WriteLine(course);
+
+ Student student= new()
+ {
+     Förnamn= "Ayah",
+     Efternamn="Salem",
+     Telefon="07222222222",
+     Personnummer="200306299999",
+     Address="Hjortmossegatan 16",
+     Postnummer="46151",
+     Ort="Trollhättan"
+
+ };
+
+ Console.WriteLine(student);
