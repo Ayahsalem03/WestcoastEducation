@@ -22,7 +22,8 @@ else
 {
     Console.WriteLine("Kursens datum är ogiltiga.");
 }
- Console.WriteLine(course);
+
+ 
 
  Student student= new()
  {
@@ -37,7 +38,16 @@ student.Adress.Street = "Hjortmossegatan 16";
 student.Adress.Postnummer = "46151";
 student.Adress.Ort= "Trollhättan";
 
- Console.WriteLine(student);
+ 
+ School school= new();
+school.AddStudent(student);
+foreach (Student s in school.Students)
+{
+    Console.WriteLine(s);
+}
+school.AddCourse(course);
+
+
 
  Teacher teacher = new()
 {
@@ -51,11 +61,17 @@ student.Adress.Ort= "Trollhättan";
 teacher.Adress.Street = "Storgatan 15";
 teacher.Adress.Postnummer = "41100";
 teacher.Adress.Ort = "Göteborg";
-Console.WriteLine(teacher);
+
 teacher.AddCourse(course);
+school.AddTeacher(teacher);
+
+foreach (Teacher t in school.Teachers)
+{
+    Console.WriteLine(t);
+}
 
 
-foreach(Course c in teacher.Courses)
+foreach(Course c in school.Courses)
 {
     Console.WriteLine(c);
 }
@@ -73,7 +89,7 @@ manager.Adress.Street = "Storgatan 2";
 manager.Adress.Postnummer = "12345";
 manager.Adress.Ort = "Göteborg";
 
-Console.WriteLine(manager);
+
 
 
 
@@ -91,4 +107,18 @@ administrator.Adress.Street = "Storgatan 3";
 administrator.Adress.Postnummer = "44567";
 administrator.Adress.Ort = "Göteborg";
 
-Console.WriteLine(administrator);
+
+
+school.AddEducationManager(manager);
+
+foreach (EducationManager m in school.EducationManagers)
+{
+    Console.WriteLine(m);
+}
+
+school.AddAdministrator(administrator);
+
+foreach (Administrator a in school.Administrators)
+{
+    Console.WriteLine(a);
+}
