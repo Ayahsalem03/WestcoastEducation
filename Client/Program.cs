@@ -6,7 +6,8 @@ Course course= new()
     Title = "Programmering med CSharp",
     Längd = 12,
     StartDatum = new DateTime(2026, 8, 24),
-    EndDatum = new DateTime(2027, 10, 31),
+    EndDatum = new DateTime(2026, 11, 16),
+   
     CourseType = "Distans"
 
    
@@ -52,6 +53,8 @@ teacher.Adress.Postnummer = "41100";
 teacher.Adress.Ort = "Göteborg";
 Console.WriteLine(teacher);
 teacher.AddCourse(course);
+
+
 foreach(Course c in teacher.Courses)
 {
     Console.WriteLine(c);
