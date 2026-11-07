@@ -1,13 +1,15 @@
+
 using System;
 using System.Collections.ObjectModel;
 using Core.Models;
 
 namespace Desktop.ViewModels;
 
-public partial class CourseViewModel : ViewModelBase
+public partial class CoursesViewModel : ViewModelBase
 {
-    public ObservableCollection<Course> Courses {get; }= new();
-    public CourseViewModel()
+    public ObservableCollection<Course> Courses { get; } = new();
+
+    public CoursesViewModel()
     {
         Courses.Add(new Course
         {
@@ -17,10 +19,6 @@ public partial class CourseViewModel : ViewModelBase
             StartDatum = new DateTime(2026, 8, 24),
             EndDatum = new DateTime(2026, 11, 15),
             CourseType = "Distans"
-            
         });
-        
     }
-
-     
 }
