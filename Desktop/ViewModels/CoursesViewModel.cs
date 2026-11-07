@@ -2,6 +2,7 @@
 using System;
 using System.Collections.ObjectModel;
 using Core.Models;
+using CommunityToolkit.Mvvm.Input;
 
 namespace Desktop.ViewModels;
 
@@ -20,5 +21,14 @@ public partial class CoursesViewModel : ViewModelBase
             EndDatum = new DateTime(2026, 11, 15),
             CourseType = "Distans"
         });
+    }
+
+    [RelayCommand]
+    private void DeleteCourse(Course course)
+    {
+        if (course != null)
+        {
+            Courses.Remove(course);
+        }
     }
 }

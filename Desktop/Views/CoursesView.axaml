@@ -1,6 +1,7 @@
+
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:vm="clr-namespace:Desktop.ViewModels;assembly=Desktop"
+             xmlns:vm="using:Desktop.ViewModels"
              xmlns:models="using:Core.Models"
              x:Class="Desktop.Views.CoursesView"
              x:DataType="vm:CoursesViewModel">
@@ -15,15 +16,11 @@
                 BorderThickness="0 0 0 1"
                 Padding="0 20 0 5">
 
-            <Grid ColumnDefinitions="100,250,*">
+            <Grid ColumnDefinitions="100,250,150,*">
 
                 <Label Content="Kursnummer"/>
-
-                <Label Grid.Column="1"
-                       Content="Kursnamn"/>
-
-                <Label Grid.Column="2"
-                       Content="Kurstyp"/>
+                <Label Grid.Column="1" Content="Kursnamn"/>
+                <Label Grid.Column="2" Content="Kurstyp"/>
 
             </Grid>
         </Border>
@@ -33,7 +30,7 @@
             <ItemsControl.ItemTemplate>
                 <DataTemplate x:DataType="models:Course">
 
-                    <Grid ColumnDefinitions="100,250,*"
+                    <Grid ColumnDefinitions="100,250,150,*"
                           Margin="0 5">
 
                         <TextBlock Text="{Binding Kursnummer}"/>
@@ -43,6 +40,12 @@
 
                         <TextBlock Grid.Column="2"
                                    Text="{Binding CourseType}"/>
+
+                        <Button Grid.Column="3"
+                                Content="Radera"
+                                Command="{Binding $parent[UserControl].DataContext.DeleteCourseCommand}"
+                                CommandParameter="{Binding}"
+                                HorizontalAlignment="Left"/>
 
                     </Grid>
 
