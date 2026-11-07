@@ -28,6 +28,10 @@
                         Command="{Binding GoToCoursesCommand}"
                         HorizontalAlignment="Stretch"/>
 
+                <Button Content="Lägg till kurs"
+                        Command="{Binding GoToAddCourseCommand}"
+                        HorizontalAlignment="Stretch"/>
+
             </StackPanel>
 
         </Border>

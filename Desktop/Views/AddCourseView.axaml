@@ -1,0 +1,40 @@
+
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:Desktop.ViewModels"
+             x:Class="Desktop.Views.AddCourseView"
+             x:DataType="vm:AddCourseViewModel">
+
+    <StackPanel Margin="20" Spacing="12">
+
+        <TextBlock Text="Lägg till kurs"
+                   FontSize="26"
+                   FontWeight="Bold"/>
+
+        <TextBlock Text="Kursnummer"/>
+        <TextBox Text="{Binding Kursnummer}"/>
+
+        <TextBlock Text="Kursnamn"/>
+        <TextBox Text="{Binding Title}"/>
+
+        <TextBlock Text="Längd (veckor)"/>
+        <TextBox Text="{Binding Längd}"/>
+
+        <TextBlock Text="Startdatum (ÅÅÅÅ-MM-DD)"/>
+        <TextBox Text="{Binding StartDatum}"/>
+
+        <TextBlock Text="Slutdatum (ÅÅÅÅ-MM-DD)"/>
+        <TextBox Text="{Binding EndDatum}"/>
+
+        <TextBlock Text="Kurstyp"/>
+        <TextBox Text="{Binding CourseType}"/>
+
+        <TextBlock Text="{Binding ErrorMessage}"
+                   Foreground="Red"/>
+
+        <Button Content="Spara kurs"
+                Command="{Binding SaveCommand}"
+                HorizontalAlignment="Left"/>
+
+    </StackPanel>
+</UserControl>
