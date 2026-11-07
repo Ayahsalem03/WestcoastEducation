@@ -1,0 +1,55 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:Desktop.ViewModels;assembly=Desktop"
+             xmlns:models="using:Core.Models"
+             x:Class="Desktop.Views.CoursesView"
+             x:DataType="vm:CoursesViewModel">
+
+    <StackPanel Margin="20" Spacing="15">
+
+        <TextBlock Text="Våra kurser"
+                   FontSize="26"
+                   FontWeight="Bold"/>
+
+        <Border BorderBrush="Gray"
+                BorderThickness="0 0 0 1"
+                Padding="0 20 0 5">
+
+            <Grid ColumnDefinitions="100,250,*">
+
+                <Label Content="Kursnummer"/>
+
+                <Label Grid.Column="1"
+                       Content="Kursnamn"/>
+
+                <Label Grid.Column="2"
+                       Content="Kurstyp"/>
+
+            </Grid>
+        </Border>
+
+        <ItemsControl ItemsSource="{Binding Courses}">
+
+            <ItemsControl.ItemTemplate>
+                <DataTemplate x:DataType="models:Course">
+
+                    <Grid ColumnDefinitions="100,250,*"
+                          Margin="0 5">
+
+                        <TextBlock Text="{Binding Kursnummer}"/>
+
+                        <TextBlock Grid.Column="1"
+                                   Text="{Binding Title}"/>
+
+                        <TextBlock Grid.Column="2"
+                                   Text="{Binding CourseType}"/>
+
+                    </Grid>
+
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+
+        </ItemsControl>
+
+    </StackPanel>
+</UserControl>
