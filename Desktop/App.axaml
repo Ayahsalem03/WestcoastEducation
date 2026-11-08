@@ -1,15 +1,35 @@
+
 <Application xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              x:Class="Desktop.App"
              xmlns:local="using:Desktop"
-             RequestedThemeVariant="Default">
-             <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
+             RequestedThemeVariant="Light">
 
     <Application.DataTemplates>
         <local:ViewLocator />
     </Application.DataTemplates>
 
+    
+<Application.Resources>
+    <ResourceDictionary>
+
+        <SolidColorBrush x:Key="SidebarBackground" Color="#151E3E"/>
+        <SolidColorBrush x:Key="SidebarTextColor" Color="#FFFFFF"/>
+
+        <SolidColorBrush x:Key="ButtonBackground" Color="#314E89"/>
+        <SolidColorBrush x:Key="ButtonTextColor" Color="#FFFFFF"/>
+
+        <SolidColorBrush x:Key="MainBackground" Color="#FFFFFF"/>
+        <SolidColorBrush x:Key="MainTextColor" Color="#202020"/>
+
+        <SolidColorBrush x:Key="ErrorTextColor" Color="#C62828"/>
+
+    </ResourceDictionary>
+</Application.Resources>
+
+
     <Application.Styles>
         <FluentTheme />
     </Application.Styles>
+
 </Application>
