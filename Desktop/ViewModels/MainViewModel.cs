@@ -7,6 +7,7 @@ namespace Desktop.ViewModels;
 public partial class MainViewModel : ViewModelBase
 {
     private readonly CoursesViewModel _coursesView = new();
+    private readonly StudentsViewModel _studentsView = new();
     private readonly AddCourseViewModel _addCourseView;
 
     [ObservableProperty]
@@ -29,4 +30,11 @@ public partial class MainViewModel : ViewModelBase
     {
         CurrentView = _addCourseView;
     }
+    
+    [RelayCommand]
+    private void GoToStudents()
+    {
+        CurrentView = _studentsView;
+    }
+
 }
