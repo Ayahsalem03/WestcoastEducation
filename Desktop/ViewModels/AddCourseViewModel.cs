@@ -1,4 +1,5 @@
-
+using System.Threading.Tasks;
+using Desktop.Services;
 using System;
 using System.Collections.ObjectModel;
 using Core.Models;
@@ -10,6 +11,7 @@ namespace Desktop.ViewModels;
 public partial class AddCourseViewModel : ViewModelBase
 {
     private readonly ObservableCollection<Course> _courses;
+    private readonly HttpService<Course> _httpService = new();
 
     [ObservableProperty]
     public partial int Kursnummer { get; set; }
@@ -37,34 +39,52 @@ public partial class AddCourseViewModel : ViewModelBase
         _courses = courses;
     }
 
-    [RelayCommand]
-    private void Save()
+    
+[RelayCommand]
+private async Task Save()
+{
+    if (string.IsNullOrWhiteSpace(Title) ||
+        !DateTime.TryParse(StartDatum, out DateTime start) ||
+        !DateTime.TryParse(EndDatum, out DateTime end))
     {
-        if (string.IsNullOrWhiteSpace(Title) ||
-            !DateTime.TryParse(StartDatum, out DateTime start) ||
-            !DateTime.TryParse(EndDatum, out DateTime end))
-        {
-            ErrorMessage = "Kontrollera kursnamn och datum.";
-            return;
-        }
-
-        Course course = new()
-        {
-            Kursnummer = Kursnummer,
-            Title = Title,
-            Längd = Längd,
-            StartDatum = start,
-            EndDatum = end,
-            CourseType = CourseType
-        };
-
-        if (!course.CheckDates())
-        {
-            ErrorMessage = "Slutdatum måste vara efter startdatum.";
-            return;
-        }
-
-        _courses.Add(course);
-        ErrorMessage = string.Empty;
+        ErrorMessage = "Kontrollera kursnamn och datum.";
+        return;
     }
+
+    Course course = new()
+    {
+        Kursnummer = Kursnummer,
+        Title = Title,
+        Längd = Längd,
+        StartDatum = start,
+        EndDatum = end,
+        CourseType = CourseType
+    };
+
+    if (!course.CheckDates())
+    {
+        ErrorMessage = "Slutdatum måste vara efter startdatum.";
+        return;
+    }
+
+    try
+    {
+        var savedCourse = await _httpService.Post("courses", course);
+
+        if (savedCourse != null)
+        {
+            _courses.Add(savedCourse);
+            ErrorMessage = string.Empty;
+        }
+        else
+        {
+            ErrorMessage = "Kursen kunde inte sparas.";
+        }
+    }
+    catch (Exception ex)
+    {
+        ErrorMessage = $"Fel vid sparning: {ex.Message}";
+    }
+}
+
 }

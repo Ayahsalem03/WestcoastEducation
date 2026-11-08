@@ -12,22 +12,22 @@
                    FontWeight="Bold"/>
 
         <TextBlock Text="Kursnummer"/>
-        <TextBox Text="{Binding Kursnummer}"/>
+        <TextBox Text="{Binding Kursnummer, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
         <TextBlock Text="Kursnamn"/>
-        <TextBox Text="{Binding Title}"/>
+        <TextBox Text="{Binding Title, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
         <TextBlock Text="Längd (veckor)"/>
-        <TextBox Text="{Binding Längd}"/>
+        <TextBox Text="{Binding Längd, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
         <TextBlock Text="Startdatum (ÅÅÅÅ-MM-DD)"/>
-        <TextBox Text="{Binding StartDatum}"/>
+        <TextBox Text="{Binding StartDatum, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
         <TextBlock Text="Slutdatum (ÅÅÅÅ-MM-DD)"/>
-        <TextBox Text="{Binding EndDatum}"/>
+        <TextBox Text="{Binding EndDatum, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
         <TextBlock Text="Kurstyp"/>
-        <TextBox Text="{Binding CourseType}"/>
+        <TextBox Text="{Binding CourseType, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
         <TextBlock Text="{Binding ErrorMessage}"
                    Foreground="Red"/>
