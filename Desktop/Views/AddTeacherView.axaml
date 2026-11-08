@@ -1,0 +1,50 @@
+
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:Desktop.ViewModels"
+             x:Class="Desktop.Views.AddTeacherView"
+             x:DataType="vm:AddTeacherViewModel">
+
+    <ScrollViewer>
+        <StackPanel Margin="20" Spacing="12">
+
+            <TextBlock Text="Lägg till lärare"
+                       FontSize="26"
+                       FontWeight="Bold"/>
+
+            <TextBlock Text="Förnamn"/>
+            <TextBox Text="{Binding Förnamn, Mode=TwoWay}"/>
+
+            <TextBlock Text="Efternamn"/>
+            <TextBox Text="{Binding Efternamn, Mode=TwoWay}"/>
+
+            <TextBlock Text="Telefon"/>
+            <TextBox Text="{Binding Telefon, Mode=TwoWay}"/>
+
+            <TextBlock Text="Personnummer"/>
+            <TextBox Text="{Binding Personnummer, Mode=TwoWay}"/>
+
+            <TextBlock Text="Gatuadress"/>
+            <TextBox Text="{Binding Street, Mode=TwoWay}"/>
+
+            <TextBlock Text="Postnummer"/>
+            <TextBox Text="{Binding Postnummer, Mode=TwoWay}"/>
+
+            <TextBlock Text="Ort"/>
+            <TextBox Text="{Binding Ort, Mode=TwoWay}"/>
+
+            <TextBlock Text="Kompetensområde"/>
+            <TextBox Text="{Binding Kunskapsområde, Mode=TwoWay}"/>
+
+            <TextBlock Text="{Binding ErrorMessage}"
+                       Foreground="Red"
+                       TextWrapping="Wrap"/>
+
+            <Button Content="Spara lärare"
+                    Command="{Binding SaveCommand}"
+                    HorizontalAlignment="Left"/>
+
+        </StackPanel>
+    </ScrollViewer>
+
+</UserControl>
