@@ -23,13 +23,28 @@ public partial class CoursesViewModel : ViewModelBase
     }   
 
     [RelayCommand]
-    private void DeleteCourse(Course course)
+    
+
+    private async Task DeleteCourse(Course? course)
     {
-        if (course != null)
+        if (course == null || string.IsNullOrEmpty(course.Id))
         {
+            return;
+        }
+
+        try
+        {
+            await _httpService.Delete("courses", course.Id);
+
             Courses.Remove(course);
         }
+        catch (Exception ex)
+        {
+            System.Diagnostics.Debug.WriteLine(
+                $"Fel vid radering av kurs: {ex.Message}");
+        }
     }
+
     
 public async Task GetCourses()
 {

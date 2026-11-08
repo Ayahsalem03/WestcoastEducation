@@ -2,6 +2,8 @@ namespace Core.Models;
 
 public  class Course
 {
+    [System.Text.Json.Serialization.JsonPropertyName("_id")]
+    public string? Id { get; set; } 
     public int Kursnummer{get;set;}
     public string Title{get; set;}= "";
 

@@ -60,4 +60,21 @@ public class HttpService<T> where T : class
         return await response.Content.ReadFromJsonAsync<T>(
             _options);
     }
+    
+    
+    public async Task Delete(string resource, string id)
+    {
+        using HttpClient client = new();
+
+        client.DefaultRequestHeaders.Add("x-apikey", _apiKey);
+
+        var response = await client.DeleteAsync(
+            _baseUrl + resource + "/" + id);
+
+        response.EnsureSuccessStatusCode();
+}
+
+
+
+
 }
