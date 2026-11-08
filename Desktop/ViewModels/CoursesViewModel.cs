@@ -1,27 +1,26 @@
 
+using System.Threading.Tasks;
+using Desktop.Services;
+
 using System;
 using System.Collections.ObjectModel;
 using Core.Models;
 using CommunityToolkit.Mvvm.Input;
+
 
 namespace Desktop.ViewModels;
 
 public partial class CoursesViewModel : ViewModelBase
 {
     public ObservableCollection<Course> Courses { get; } = new();
+    
+    private readonly HttpService<Course> _httpService = new();
+
 
     public CoursesViewModel()
     {
-        Courses.Add(new Course
-        {
-            Kursnummer = 200,
-            Title = "Programmering med C#",
-            Längd = 12,
-            StartDatum = new DateTime(2026, 8, 24),
-            EndDatum = new DateTime(2026, 11, 15),
-            CourseType = "Distans"
-        });
-    }
+       _ = GetCourses();
+    }   
 
     [RelayCommand]
     private void DeleteCourse(Course course)
@@ -31,4 +30,25 @@ public partial class CoursesViewModel : ViewModelBase
             Courses.Remove(course);
         }
     }
+    
+public async Task GetCourses()
+{
+    try
+    {
+        var courses = await _httpService.Get("courses");
+
+        Courses.Clear();
+
+        foreach (var course in courses)
+        {
+            Courses.Add(course);
+        }
+    }
+    catch (Exception ex)
+    {
+        System.Diagnostics.Debug.WriteLine(
+            $"Fel vid hämtning av kurser: {ex}");
+    }
+}
+
 }
