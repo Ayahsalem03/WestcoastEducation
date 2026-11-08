@@ -2,6 +2,8 @@ namespace Core.Models;
 
 public class Teacher : Person
 {
+    [System.Text.Json.Serialization.JsonPropertyName("_id")]
+    public string? Id { get; set; }
     public string Kunskapsområde{get;set;}="";
     public List<Course> Courses{get; set; }= new();
     public void AddCourse(Course course)

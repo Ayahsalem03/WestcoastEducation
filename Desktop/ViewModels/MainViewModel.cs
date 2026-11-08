@@ -10,6 +10,9 @@ public partial class MainViewModel : ViewModelBase
     private readonly StudentsViewModel _studentsView = new();
     
     private readonly AddStudentViewModel _addStudentView;
+    
+    private readonly TeachersViewModel _teachersView = new();
+
 
     private readonly AddCourseViewModel _addCourseView;
 
@@ -20,6 +23,8 @@ public partial class MainViewModel : ViewModelBase
     {
         _addCourseView = new AddCourseViewModel(_coursesView.Courses);
         _addStudentView = new AddStudentViewModel(_studentsView.Students);
+        
+
 
         CurrentView = _coursesView;
     }
@@ -47,6 +52,13 @@ public partial class MainViewModel : ViewModelBase
     {
         CurrentView = _addStudentView;
     }
+    
+    [RelayCommand]
+    private void GoToTeachers()
+    {
+        CurrentView = _teachersView;
+    }
+
 
 
 }

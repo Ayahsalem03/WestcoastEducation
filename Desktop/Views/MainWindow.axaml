@@ -39,6 +39,11 @@
                 <Button Content="Lägg till student"
                         Command="{Binding GoToAddStudentCommand}"
                         HorizontalAlignment="Stretch"/>
+                
+                <Button Content="Lärare"
+                        Command="{Binding GoToTeachersCommand}"
+                        HorizontalAlignment="Stretch"/>
+
 
 
 

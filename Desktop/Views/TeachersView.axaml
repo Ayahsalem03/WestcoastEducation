@@ -1,0 +1,52 @@
+
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:Desktop.ViewModels"
+             xmlns:models="using:Core.Models"
+             x:Class="Desktop.Views.TeachersView"
+             x:DataType="vm:TeachersViewModel">
+
+    <StackPanel Margin="20" Spacing="15">
+
+        <TextBlock Text="Våra lärare"
+                   FontSize="26"
+                   FontWeight="Bold"/>
+
+        <Grid ColumnDefinitions="140,140,140,*">
+            <TextBlock Text="Förnamn"/>
+            <TextBlock Grid.Column="1"
+                       Text="Efternamn"/>
+            <TextBlock Grid.Column="2"
+                       Text="Telefon"/>
+            <TextBlock Grid.Column="3"
+                       Text="Kompetensområde"/>
+        </Grid>
+
+        <ItemsControl ItemsSource="{Binding Teachers}">
+            <ItemsControl.ItemTemplate>
+
+                <DataTemplate x:DataType="models:Teacher">
+
+                    <Grid ColumnDefinitions="140,140,140,*"
+                          Margin="0 5">
+
+                        <TextBlock Text="{Binding Förnamn}"/>
+
+                        <TextBlock Grid.Column="1"
+                                   Text="{Binding Efternamn}"/>
+
+                        <TextBlock Grid.Column="2"
+                                   Text="{Binding Telefon}"/>
+
+                        <TextBlock Grid.Column="3"
+                                   Text="{Binding Kunskapsområde}"/>
+
+                    </Grid>
+
+                </DataTemplate>
+
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+
+    </StackPanel>
+</UserControl>
