@@ -73,6 +73,21 @@ public class HttpService<T> where T : class
 
         response.EnsureSuccessStatusCode();
 }
+                  
+public async Task Update(string resource, string id, T item)
+{
+    using HttpClient client = new();
+
+    client.DefaultRequestHeaders.Add("x-apikey", _apiKey);
+
+    var response = await client.PutAsJsonAsync(
+        _baseUrl + resource + "/" + id,
+        item,
+        _options);
+
+    response.EnsureSuccessStatusCode();
+}
+
 
 
 

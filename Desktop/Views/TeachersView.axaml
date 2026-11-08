@@ -47,6 +47,46 @@
 
             </ItemsControl.ItemTemplate>
         </ItemsControl>
+        
+<!-- Ändra lärarens kompetensområde -->
+
+<Separator Margin="0 15"/>
+
+<TextBlock Text="Ändra kompetensområde"
+           FontSize="22"
+           FontWeight="Bold"/>
+
+<TextBlock Text="Välj lärare"/>
+
+<ComboBox ItemsSource="{Binding Teachers}"
+          SelectedItem="{Binding SelectedTeacher, Mode=TwoWay}"
+          HorizontalAlignment="Stretch">
+
+    <ComboBox.ItemTemplate>
+        <DataTemplate x:DataType="models:Teacher">
+            <StackPanel Orientation="Horizontal" Spacing="5">
+                <TextBlock Text="{Binding Förnamn}"/>
+                <TextBlock Text="{Binding Efternamn}"/>
+            </StackPanel>
+        </DataTemplate>
+    </ComboBox.ItemTemplate>
+
+</ComboBox>
+
+<TextBlock Text="Nytt kompetensområde"/>
+
+
+<TextBox Text="{Binding NewKunskapsområde, Mode=TwoWay}"
+         PlaceholderText="Exempel: Programmering, Nätverk"/>
+
+
+<Button Content="Spara ändring"
+        Command="{Binding UpdateKunskapsområdeCommand}"
+        HorizontalAlignment="Left"/>
+
+<TextBlock Text="{Binding ErrorMessage}"
+           TextWrapping="Wrap"/>
+
 
     </StackPanel>
 </UserControl>
