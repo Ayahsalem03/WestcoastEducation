@@ -7,5 +7,5 @@ public class Person
     public string Telefon { get; set; } = "";
     public string Personnummer { get; set; } = "";
 
-    public Address Adress { get; } = new();
+    public Address Adress { get; set; } = new();
 }

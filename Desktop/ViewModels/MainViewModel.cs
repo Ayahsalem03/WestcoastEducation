@@ -8,6 +8,9 @@ public partial class MainViewModel : ViewModelBase
 {
     private readonly CoursesViewModel _coursesView = new();
     private readonly StudentsViewModel _studentsView = new();
+    
+    private readonly AddStudentViewModel _addStudentView;
+
     private readonly AddCourseViewModel _addCourseView;
 
     [ObservableProperty]
@@ -16,6 +19,8 @@ public partial class MainViewModel : ViewModelBase
     public MainViewModel()
     {
         _addCourseView = new AddCourseViewModel(_coursesView.Courses);
+        _addStudentView = new AddStudentViewModel(_studentsView.Students);
+
         CurrentView = _coursesView;
     }
 
@@ -36,5 +41,12 @@ public partial class MainViewModel : ViewModelBase
     {
         CurrentView = _studentsView;
     }
+    
+    [RelayCommand]
+    private void GoToAddStudent()
+    {
+        CurrentView = _addStudentView;
+    }
+
 
 }

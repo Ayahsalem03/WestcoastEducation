@@ -35,6 +35,11 @@
                 <Button Content="Studenter"
                         Command="{Binding GoToStudentsCommand}"
                         HorizontalAlignment="Stretch"/>
+                
+                <Button Content="Lägg till student"
+                        Command="{Binding GoToAddStudentCommand}"
+                        HorizontalAlignment="Stretch"/>
+
 
 
             </StackPanel>
